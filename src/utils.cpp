@@ -1,4 +1,13 @@
 #include "utils.hpp"
+#include <fstream>
+#include <sstream>
+
+std::string read_file(const std::string& path) {
+    std::ifstream file(path);
+    std::ostringstream ss;
+    ss << file.rdbuf();
+    return ss.str();
+}
 
 namespace beast = boost::beast;
 namespace http = beast::http;
